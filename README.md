@@ -7,9 +7,9 @@ Additionally, I have chosen to include the beginner, intermediate and advanced i
 ## Password Manager Enchancements
 The following enhancements have been made to the Password Manager project:
 
-1. Switch from txt to JSON Format: Data is now stored in a JSON file, making it easier to manage and retrieve structured data.
-2. Search Capability: Users can search for saved credentials by entering the website name, and the application will display the associated email and password.
-3. Exception Handling: The application handles exceptions such as missing data files and non-existent entries gracefully, providing appropriate error messages to the user.
+1. __Switch from txt to JSON Format:__ Data is now stored in a JSON file, making it easier to manage and retrieve structured data.
+2. __Search Capability:__ Users can search for saved credentials by entering the website name, and the application will display the associated email and password.
+3. __Exception Handling:__ The application handles exceptions such as missing data files and non-existent entries gracefully, providing appropriate error messages to the user.
 
 ## Why use Exception Handling?
 
@@ -44,3 +44,60 @@ finally:
   if file:
     file.close()
 ```
+## Working with JSON in Python:
+- json.dump
+- json.read
+- json.update
+
+**Writing JSON Data: json.dump**
+The __json.dump__ method is used to write JSON data to a file. It serializes a Python object into a JSON formatted stream and writes it to a file.
+```python
+import json
+
+data = {
+    "name": "John Doe",
+    "age": 30,
+    "city": "New York"
+}
+
+with open('data.json', 'w') as file:
+    json.dump(data, file, indent=4)
+```
+
+**Reading JSON Data: json.load**
+The __json.load__ method is used to read JSON data from a file and deserialize it into a Python object.
+```python
+import json
+
+with open('data.json', 'r') as file:
+    data = json.load(file)
+
+print(data)
+```
+
+**Updating JSON Data**
+To update JSON data, you typically load the existing JSON data into a Python dictionary, make your updates, and then write the updated dictionary back to the JSON file.
+```python
+import json
+
+# Load existing data
+with open('data.json', 'r') as file:
+    data = json.load(file)
+
+# Update the data
+data['age'] = 31
+data['email'] = 'john.doe@example.com'
+
+# Write updated data back to the file
+with open('data.json', 'w') as file:
+    json.dump(data, file, indent=4)
+```
+
+
+
+
+
+
+
+
+
